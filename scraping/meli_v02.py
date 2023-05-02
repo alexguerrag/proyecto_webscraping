@@ -37,8 +37,12 @@ def scrape_ml2(url, min_discount):
         else:
             discount = 0.0
 
+        # Obtenemos el enlace del producto
+        link_tag = product.find('a', {'class': 'promotion-item__link-container'})
+        link = link_tag['href'] if link_tag is not None else ''
+
         # Si el porcentaje de descuento es mayor o igual al mínimo deseado, agregamos el producto a la lista
         if discount >= min_discount:
-            discounted_products.append({'title': title, 'price': price, 'old_price': old_price, 'discount': discount})
+            discounted_products.append({'title': title, 'price': price, 'old_price': old_price, 'discount': discount, 'link': link})
 
     return discounted_products

@@ -7,7 +7,7 @@ discounts = scrape_ml2(url="https://www.mercadolibre.cl/ofertas", min_discount=5
 import csv
 # Creamos un archivo CSV para almacenar los datos
 with open("descuentos.csv", mode="w", encoding="utf-8", newline="") as csvfile:
-    fieldnames = ['title', 'price', 'old_price', 'discount']
+    fieldnames = ['title', 'price', 'old_price', 'discount', 'link']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()
